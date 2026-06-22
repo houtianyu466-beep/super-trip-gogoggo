@@ -1,0 +1,18 @@
+server:
+  port: 8080
+langchain4j:
+  open-ai:
+    chat-model:
+      api-key: ${DEEPSEEK_API_KEY}
+      model-name: deepseek-chat
+      log-requests: true
+      log-responses: true
+      base-url: https://api.deepseek.com/v1
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/trip_agent?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
