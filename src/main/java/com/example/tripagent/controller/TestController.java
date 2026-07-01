@@ -2,6 +2,7 @@ package com.example.tripagent.controller;
 
 import com.example.tripagent.common.result.Result;
 import com.example.tripagent.domain.entity.TravelPlan;
+import com.example.tripagent.mapper.TravelPlanMapper;
 import com.example.tripagent.service.TravelPlanService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +16,17 @@ import java.util.List;
 public class TestController {
 
     private final TravelPlanService travelPlanService;
+    private final TravelPlanMapper travelPlanMapper;
 
-    public TestController(TravelPlanService travelPlanService) {
+    public TestController(TravelPlanService travelPlanService,
+                          TravelPlanMapper travelPlanMapper) {
         this.travelPlanService = travelPlanService;
+        this.travelPlanMapper = travelPlanMapper;
     }
 
     @GetMapping("/plans")
     public Result<List<TravelPlan>> plans(@RequestParam Long requestId) {
-        return Result.success(travelPlanService.generatePlans(requestId));
+        List<TravelPlan> travelPlans = travelPlanService.generatePlans(requestId);
+        return Result.success(travelPlans);
     }
 }

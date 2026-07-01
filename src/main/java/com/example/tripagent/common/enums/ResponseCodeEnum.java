@@ -9,7 +9,12 @@ public enum ResponseCodeEnum {
     BUSINESS_ERROR(4001, "业务异常"),
     REQUEST_NOT_EXIST(4002, "请求不存在"),
     EMPLOYEE_NOT_EXIST(4003, "员工不存在"),
-    RESOURCE_NOT_FOUND(4004, "请求未通过审核");
+    RESOURCE_NOT_FOUND(4004, "请求未通过审核"),
+    USER_NOT_EXIST(4005, "用户不存在"),
+    USERNAME_OR_PASSWORD_ERROR(4006, "用户名或密码错误"),
+    USER_NOT_LOGIN(4007, "用户未登录"),
+    USER_BE_DISABLED(4009, "用户已被禁用"),
+    PERMISSION_DENIED(4010, "权限不足");
 
     private final Integer code;
     private final String message;
